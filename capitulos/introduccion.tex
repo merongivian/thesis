@@ -1,0 +1,132 @@
+\section{Antecedentes}
+
+La música, como cualquier otro campo, se ha beneficiado de increíbles
+contribuciones musicales tanto en el plano solista como en el plano grupal.
+Compositores como Beethoven o Mozart dejaron memorables sinfonías y sonatas,
+mientras que grupos como los Beatles dejaron grandes baladas. Dar fruto a estas
+increíbles obras fueron fruto del esfuerzo y desde luego, de la colaboración
+directa e indirecta de varias personas. Sin la influencia de otros artistas un
+músico no tiene un punto de partida firme. El ascendiente de varias personas
+hacen más enriquecedora la creación,  más elevado su resultado.  La inspiración
+puede venir de diversas fuentes, muchas de las cuales no son siempre las
+habituales. Sin la inspiración, la creación no fluye. Se dice que el 99% del
+trabajo de un artista es buscarla constantemente, y el 1% es el trabajo fruto
+de haberla encontrado.
+
+En cualquier tipo de trabajo en grupo, al sumar esfuerzos la creatividad se
+multiplica. Pero no siempre podemos estar de acuerdo con toda la lluvia de
+ideas de un grupo heterogéneos de personas. Así, en el plano musical el fruto
+de todo el trabajo se logra en base al consenso. Se desechan unas propuestas y
+se mejoran otras con el fin de obtener el mejor producto final, en este caso
+una canción.
+
+A medida que avanza la tecnología, y las formas en las que interactuamos como
+individuos, se multiplican las ideas. Hemos visto como del fruto de una simple
+plataforma web para compartir videos, se han creado nuevas formas de expresión
+en el campo audiovisual. Así por ejemplo se han generado aplicaciones para la
+edición de videos con otras personas.
+
+En el campo musical este es un tema que se está tratando de explotar. Si bien
+existen aplicaciones web que buscan ser un centro de colaboración musical,
+están atados a aplicaciones de edición musical de terceros, con lo que el
+proceso se vuelve menos intuitivo para el usuario. De igual manera en
+aplicaciones con sistemas de edición propios, no se aplica obligatoriamente un
+sistema de versiones , lo cual facilitaría la colaboración entre varios
+artistas.
+
+Por los motivos mencionados se ha planteado este sistema, que servirá como
+punto de colaboración, creación y edición para artistas.
+
+\section{Alcance}
+
+El sistema que se plantea es una red social implementada en una plataforma web,
+en la cual se incentivará la colaboración musical entre artistas. Se crearán
+permisos para saber que personas pueden realizar ediciones de una canción. El
+creador de la canción tendrá la potestad de dar estos permisos.  Un autor podrá
+aceptar o rechazar cambios hechos a la canción en cuestión, así como deshacer
+cambios y volver a un punto en la edición de la canción. Para esto se usará un
+sistema de control de versiones ya existente y se lo adaptará a las necesidades
+de la página web.
+
+La parte principal de la aplicación será la edición de la canción en si. Se
+podrá optar entre añadir pistas que tendrán contenido de batería, piano, etc.
+También se podrá cambiar la distribución de los mismos a lo largo de la canción
+de una manera intuitiva para el usuario.
+
+Los sonidos para las pistas serán suministrados por la página, el usuario
+utilizará estas librerías y podrá editar las notas y tiempos para su pista.
+
+Para el desarrollo se utilizara la metodología SCRUM. Es un campo todavía no
+muy explotado que permitirá generar nuevas ideas a medida que  se desarrolle el
+tema, permitiendo a su vez una mejor respuesta a los cambios que requiera la
+aplicación.
+
+Se hará uso también de la técnica de programación TDD o Test Driven
+Development. Este es un proceso de desarrollo de software que se basa en la
+idea de desarrollar pruebas, codificar y refactorizar el código construido.
+(Barrio, 2012).
+
+Como herramienta adicional, se usará un marco de desarrollo que sigue el patrón
+de arquitectura MVC (Modelo Vista Controlador) el cual es un patrón que define
+la organización independiente del Modelo (Objetos de Negocio), la Vista
+(interfaz con el usuario u otro sistema) y el Controlador (controlador del
+workflow de la aplicación).  (LDI Universidad Carlos III de Madrid, 2014).
+
+\section{Justificación}
+
+En lo que se refiere a música, actualmente existen muchas paginas para escoger,
+lo cual incentiva su difusión.  En cuanto a la colaboración musical, podemos
+encontrar las siguientes aplicaciones web, cada una con sus pros y sus contras:
+Sistemas como Blend (https://blend.io/) ; Wavestack
+(http://www.wavestack.com/). Los dos se enfocan en ser repositorios de música,
+pero no realizan un manejo de control de versiones. La aplicación web Wavestack
+no integra algún sistema de edición musical , como es el caso de Blend.
+Existen otras páginas web como Splice (https://www.splice.com) que nos permiten
+colaborar con otros artistas e incluso integran un control de versiones, pero
+necesitan acoplarse a un software de edición ya existente. Esta situación puede
+llegar a ser confusa y no muy amigable para el usuario final , que requerirá
+primero configurar la aplicación en su equipo para empezar a usar los servicios
+de la pagina.
+
+\section{Objetivos}
+
+\subsection{Objetivo General}
+
+En lo que se refiere a música, actualmente existen muchas paginas para escoger,
+lo cual incentiva su difusión.  En cuanto a la colaboración musical, podemos
+encontrar las siguientes aplicaciones web, cada una con sus pros y sus contras:
+Sistemas como Blend (https://blend.io/) ; Wavestack
+(http://www.wavestack.com/). Los dos se enfocan en ser repositorios de música,
+pero no realizan un manejo de control de versiones. La aplicación web Wavestack
+no integra algún sistema de edición musical , como es el caso de Blend.
+Existen otras páginas web como Splice (https://www.splice.com) que nos permiten
+colaborar con otros artistas e incluso integran un control de versiones, pero
+necesitan acoplarse a un software de edición ya existente. Esta situación puede
+llegar a ser confusa y no muy amigable para el usuario final , que requerirá
+primero configurar la aplicación en su equipo para empezar a usar los servicios
+de la pagina.
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+  \item Implementar y adaptar un sistema de edición en línea que permitirá editar la pista como tal
+  \item Adaptar un sistema de control de versiones y adaptarlo conjuntamente con el sistema de edición
+  \item Diseñar un sistema de permisos para grupos y sus miembros
+  \item Crear pruebas unitarias y de integración que nos servirá como documentación del código creado
+  \item Crear una documentación mas extensa de las historias de usuario por medio de un gestor de tareas que use metodologías ágiles
+\end{itemize}
+
+\section{Metodologías}
+
+Se utilizaran el método exploratorio y el método experimental, a lo largo del
+uso de las mismas se tratara de complementar la una con la otra (una vez que se
+haya explorado una posible solución se la implementara de la manera mas
+optima).
+
+El método exploratorio nos permitirá encontrar las librerías necesarias tanto
+para implementar el sistema de control de versiones como la interfaz de edición
+musical.
+
+El método experimental nos ayudara a diseñar de manera mas clara la interfaz
+para cada una de las características del sistema expuestas anteriormente
+

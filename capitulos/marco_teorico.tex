@@ -1,0 +1,219 @@
+\section{Metodologías Ágiles}
+
+En el software se tiene un amplio número de metodologías de desarrollo, las
+primeras fueron inspiradas en metodologías usadas en otras ramas de ingeniería
+y adaptadas para su uso en la construcción de sistemas informáticos. Estas
+promueven un desarrollo lineal, haciendo énfasis en la planificación exhaustiva
+para su posterior ejecución. Un ejemplo de estas metodologías es el desarrollo
+en cascada.
+
+Uno de los motivos por los cuales no se recomienda usar metodologías de
+desarrollo lineales, como el desarrollo en cascada, es que son procesos muy
+rígidos,  los cuales  contemplan, de antemano, que todos los proyectos de
+software son similares y que no necesitan gestionar muchos cambios a lo largo
+de su existencia.
+
+Son contados los tipos de proyectos en el mundo del software que tienen una
+base y aplicación parecidas, y al ser el desarrollo de sistemas una rama
+relativamente joven en comparación a otras ingenierías, no se puede confiar
+ciegamente en un proceso que considera la construcción de sistemas de software
+como un proceso probado y casi infalible. Las metodologías ágiles nacieron con
+el objetivo de solventar estas deficiencias y obtener un mejor tiempo de
+respuesta a posibles errores o cambios que se den a lo largo de un proyecto,
+por medio de iteraciones cortas para así obtener un mejor feedback por parte
+del cliente.
+
+\subsection{Manifiesto Ágil}
+
+\subsubsection{Tipos}
+
+\paragraph{Scrum}
+
+\section{Desarrollo guiado por pruebas}
+
+En el software se tiene un amplio número de metodologías de desarrollo, las
+primeras fueron inspiradas en metodologías usadas en otras ramas de ingeniería
+y adaptadas para su uso en la construcción de sistemas informáticos. Estas
+promueven un desarrollo lineal, haciendo énfasis en la planificación exhaustiva
+para su posterior ejecución. Un ejemplo de estas metodologías es el desarrollo
+en cascada.
+
+Uno de los motivos por los cuales no se recomienda usar metodologías de
+desarrollo lineales, como el desarrollo en cascada, es que son procesos muy
+rígidos,  los cuales  contemplan, de antemano, que todos los proyectos de
+software son similares y que no necesitan gestionar muchos cambios a lo largo
+de su existencia.
+
+Son contados los tipos de proyectos en el mundo del software que tienen una
+base y aplicación parecidas, y al ser el desarrollo de sistemas una rama
+relativamente joven en comparación a otras ingenierías, no se puede confiar
+ciegamente en un proceso que considera la construcción de sistemas de software
+como un proceso probado y casi infalible. Las metodologías ágiles nacieron con
+el objetivo de solventar estas deficiencias y obtener un mejor tiempo de
+respuesta a posibles errores o cambios que se den a lo largo de un proyecto,
+por medio de iteraciones cortas para así obtener un mejor feedback por parte
+del cliente.
+
+\subsection{Red, Green, Refactor}
+
+El desarrollo guiado por pruebas considera un proceso estricto, el cual se debe
+seguir, al pie de la letra, con el objetivo de pensar primero lo que queremos
+implementar, para así tener una mejor idea de lo queremos desarrollar, y luego
+ir mejorando nuestro código, a este proceso se lo denomina Red, Green, Refactor
+
+\subsubsection{Red (prueba fallida)}
+
+El Red se refiere a que debemos crear primero nuestra prueba y no realizar
+ningún código. Al correr el test nuestra prueba debería estar en rojo, lo cual
+significa que el test no ha pasado.
+
+\subsubsection{Green (prueba superada)}
+
+El siguiente paso es hacer pasar nuestra prueba creando el código
+correspondiente, una vez que el test pase, al correr nuestra prueba esta dará
+verde.
+
+\subsubsection{Refactor (mejorar código)}
+
+Una vez que hemos acabado de programar procedemos a mejorar nuestro código,
+cada vez que realizamos un refactor debemos aseguramos de que nuestra prueba
+siga pasando. Si nuestro test vuelve a dar error repetimos el ciclo.
+
+\subsection{Errores comunes en el proceso de crear pruebas}
+
+\subsubsection{Pensar en el porcentaje de cobertura de nuestras pruebas}
+La cobertura de pruebas es el porcentaje de código que cubren nuestros test. La
+situación ideal es tener una cobertura del 100%, pero esto nunca se logra ,
+tanto por los cambios constantes que se realiza al código y por el hecho mismo
+de que las personas escriban los tests. Las pruebas que se enfocan solo en la
+cobertura tienden a crear código poco refactorizable y generan pruebas muy
+frágiles y poco tolerantes a los cambios
+
+\subsubsection{No fallar primero}
+La cobertura de pruebas es el porcentaje de código que cubren nuestros test. La
+situación ideal es tener una cobertura del 100%, pero esto nunca se logra ,
+tanto por los cambios constantes que se realiza al código y por el hecho mismo
+de que las personas escriban los tests. Las pruebas que se enfocan solo en la
+cobertura tienden a crear código poco refactorizable y generan pruebas muy
+frágiles y poco tolerantes a los cambios
+
+\subsubsection{No tomar un tiempo comparable para realizar refactor}
+
+Idealmente se debe tomar el mismo tiempo tanto para tanto hacer refactoring
+como para crear el test. Esto a la larga produce un código mas limpio y
+mantenible
+
+\subsubsection{El código es muy fácil o muy difícil de testear}
+
+\subsection{Mocking}
+Las pruebas deben crearse en base solo a la funcionalidad que vayan a
+implementar , cualquier dependencia debe mantenerse al mínimo, tanto por
+rendimiento del sistema como por diseño del código. Otro motivo para mantener
+la dependencia al mínimo en tests es que no podemos probar una dependencia de
+manera correcta , como por ejemplo llamadas a servicios web externos , estas
+llamadas pueden cambiar constantemente y quebrar nuestros tests. Con el objetivo
+de ocultar estas dependencias se crearon los mocks.  Un mock es un objeto
+ficticio que reemplaza a un objeto real dentro de nuestro test
+
+\subsubsection{Ventajas}
+Nuestros tests corren mas rápido y no dependen uno de otro, lo cual permite
+probar cada parte de manera aislada y con mayor facilidad
+
+\subsubsection{Desventajas}
+Crear muchos mocks puede llevar a la creación de pruebas no fiables, ya que
+asumimos una salida en nuestro mock que puede cambiar en cualquier momento en
+el objeto real
+
+\subsection{Pruebas y su impacto en el desarrollo}
+
+\subsubsection{Diseño del código}
+El realizar las pruebas primero antes de escribir el código nos ayuda a
+entender mejor nuestro código y su relación con otras partes de nuestro
+sistema, esto genera una mejora drástica en el diseño. La forma en la que los
+tests nos indican que pueden haber problemas de diseño es cuando el test se
+vuelve muy difícil de implementar, lo cual nos indica que nuestro código tiene
+muchas responsabilidades y parte de esas responsabilidades deben ser extraídas
+y testeadas de manera mas profunda
+
+\subsubsection{Documentación}
+Las pruebas no solo nos ayuda a tener un código mas claro, lo cual en si ya
+tiene un impacto en nuestro entendimiento del codigo, estas también sirven como
+documentación, indicándonos cuales son los parámetros de entrada y cual es la
+salida que obtendremos al correr un código especifico . Ciertas librerías de
+pruebas nos permiten incluso escribir nuestros tests como si estuviéramos
+escribiendo texto, dando lugar a pruebas claramente descritas.
+
+\subsubsection{Debugging}
+Uno de los objetivos de hacer pruebas es deshacernos
+del proceso de debugging, si nos encontramos haciendo debugging significa que
+no hemos realizado las suficientes pruebas a nuestro código y que este oculta
+una responsabilidad que debe ser extraida, por lo cual se debe testear mas a
+profundidad fuera del contexto de nuestro primer test
+
+\section{Frameworks de desarrollo}
+Un framework o marco de trabajo es una herramienta que permite crear
+aplicaciones con mayor rapidez sin tener que empezar desde cero . Los marcos de
+trabajo web incorporan conexiones a múltiples bases de datos, comunicación de
+datos a la web, manejo de requests por parte de los navegadores y los presentan
+de una forma sencilla para el programador. Esto lo logran siguiendo patrones de
+diseño
+
+\subsection{Tipos según patrón de diseño}
+\subsubsection{Modelo Vista Controlador}
+MVC es un patrón de diseño que separa su lógico por medio de tres objetos:
+modelo , vista y controlador , el modelo se encarga de la parte de persistencia
+de datos, la vista de la parte gráfica y el controlador de lo referente a
+manejo de requerimientos activados por la vista.
+
+\paragraph{Elementos MVC}
+
+\subparagraph{Modelo}
+El modelo abstrae todo lo referente a coneccion con bases
+de datos por medio de un objeto, este objeto representa una tabla en nuestro
+sistema. Cuando la clase modelo se hereda nos provee múltiples funcionalidades
+como validaciones de datos, relaciones con otros objetos, y una interfaz clara
+tanto como para guardar como para obtener datos de la base
+
+\subparagraph{Vista}
+En lo referente a web la vista representa el html creado. Algunos frameworks
+incorporan templates que nos permiten generar html usando código desde nuestro
+backend
+
+\subparagraph{Controlador} Se encarga de manejar todos los requests
+provenientes de la vista , en este caso un navegador será el que lo active. A
+su vez redirecciona datos a las vistas correspondientes
+
+\paragraph{Proceso MVC}
+El controlador es el eje principal dentro de un esquema mvc. El ruteador es el
+encargado de recibir un url y redirigirlo al controlador correspondiente. En
+caso de que se necesiten datos para desplegar la pagina, el controlador recurre
+al modelo correspondiente, el cual llamara a la base. Una vez que el
+controlador obtiene los datos los redirige a la vista y los despliega en el
+navegador
+
+\paragraph{Ventajas}
+Una de las principales bases de MVC y su mayor fortaleza es la separación
+correcta de los roles y su flujo dentro de una aplicación, lo cual nos permite
+pensar en el flujo de los datos a través de estas capas, sin tener que
+preocuparnos por lo que pasa por debajo . Este concepto de mvc lleva ya
+bastante tiempo , lo cual ha permitido la evolución de los frameworks que
+adoptan este patrón a tal punto que ahora es muy fácil crear un aplicación
+desde cero.
+
+\paragraph{Desventajas}
+MVC fue pensado para aplicaciones de escritorio , las cuales generalmente
+manejan un solo lenguaje de programación. En el caso de un ambiente web se
+tiene el lenguaje usado tanto en el backend como en el front-end, esto da a
+lugar a aplicaciones mucho mas complejas que requieren mucha mas programación
+fuera del framework, para crear aplicaciones mas dinámicas en el front-end.
+Para crear aplicaciones que no necesitan refresco en el navegador, por ejemplo,
+se necesita una librería externa , con su propio patrón de diseño, el cual a su
+vez tiene que relacionarse con en el framework mvc para obtener datos.
+
+\subsubsection{Modelo Vista Modelo}
+\paragraph{Ventajas}
+\paragraph{Desventajas}
+
+\section{Control de Versiones}
+\section{Redes Sociales}
+\section{Edición Musical}
