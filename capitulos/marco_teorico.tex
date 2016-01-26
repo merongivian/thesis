@@ -98,11 +98,11 @@ cobertura tienden a crear código poco refactorizable y generan pruebas muy
 frágiles y poco tolerantes a los cambios
 
 \subsubsection{No tomar un tiempo comparable para realizar refactor}
-
 Idealmente se debe tomar el mismo tiempo tanto para tanto hacer refactoring
 como para crear el test. Esto a la larga produce un código mas limpio y
 mantenible
 
+%%%%%%%%%%%%%%%%%%%%%TODO%%%%%%%%%%%%%%%%%%%%
 \subsubsection{El código es muy fácil o muy difícil de testear}
 
 \subsection{Mocking}
@@ -210,10 +210,58 @@ Para crear aplicaciones que no necesitan refresco en el navegador, por ejemplo,
 se necesita una librería externa , con su propio patrón de diseño, el cual a su
 vez tiene que relacionarse con en el framework mvc para obtener datos.
 
-\subsubsection{Modelo Vista Modelo}
-\paragraph{Ventajas}
-\paragraph{Desventajas}
+\subsubsection{Modelo Vista Vista-Modelo}
 
-\section{Control de Versiones}
+\paragraph{Elementos MVVM}
+MVVM es un patrón generalmente usado en aplicaciones que requieren una
+constante actualización de datos. Los datos del modelo no pasan por un
+controlador, sino que son manejados por una capa intermedia llamada
+vista-modelo, la cual sirve de contexto para la publicación de datos
+en las vistas.
+
+\subparagraph{Modelo}
+Al igual que en el patrón MVC, este se encarga de la obtención y
+validación de datos de manera transparente, independiente del
+tipo o fuente de datos
+
+\subparagraph{Vista-Modelo}
+Maneja la actualización de datos del modelo por medio de eventos. En esta capa
+se asume que los datos se actualizan automáticamente, por lo cual no es
+necesario definir métodos explícitos para manejar la creación o eliminación
+de datos.
+
+\subparagraph{Vista}
+Se encarga de mostrar los datos y ejecutar los eventos definidos en la
+capa de Vista-Modelo. Los datos se actualizan automáticamente sin necesidad
+de hacer refrescos de página
+
+\paragraph{Proceso MVVM}
+En el momento en el que un usuario realiza una acción en la vista, esta ejecutara
+una acción en la capa vista-modelo, esta a su vez se encargara de realizar las
+consultas o cambios respectivos en el modelo. No existe necesidad de enviar los
+datos de nuevo a las vistas ya que estas se actualizan de manera automática
+
+\paragraph{Ventajas}
+Este tipo de framework nos ayuda a crear aplicaciones mucho mas ricas
+que en uno de tipo MVC, las cuales debido a su interactividad pueden
+ser transportadas fácilmente a otro tipo de interfaces, como los
+dispositivos móviles.
+Debido a que necesitan un refresco de datos constante, estos frameworks
+contienen abstracciones que nos permiten manejar datos en tiempo real
+de manera mucha mas fácil, sin necesidad de crear código adicional en
+el lado del cliente.
+
+\paragraph{Desventajas}
+El patrón MVVM asume que todas nuestras vistas deben estar constantemente
+actualizadas, lo cual a la larga puede generar problemas desempeño. Estos
+problemas generalmente son mas notorios en el lado del cliente, pero a también
+pueden pasar al lado del servidor.
+Por razones de seguridad, se puede requerir que los datos
+pasen primero por un proceso de validación directamente en el servidor,
+antes de que puedan ser mostrados en el cliente, esto no es posible en
+estos tipo de frameworks ya que la mayor parte del procesamiento pasa
+primero en el cliente.
+
+\section{Versionamiento}
 \section{Redes Sociales}
 \section{Edición Musical}
