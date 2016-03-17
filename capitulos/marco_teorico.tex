@@ -25,38 +25,71 @@ del cliente.
 
 \subsection{Manifiesto Ágil}
 
-\subsubsection{Tipos}
+Como una alternativa a métodos formales, un grupo de desarrolladores decidió
+reunirse para establecer una forma mucho mas flexible, adaptable y
+acorde a las nuevas necesidades del desarrollo de software. Entre estos
+se encontraba Kent beck, creador de la metodología Extreme Programming.
+En esta reunión se estableció lo que hoy se conoce como el manifiesto
+ágil, este consta de los siguientes principios:
 
-\paragraph{Scrum}
+\subsubsection{Valorar más a los individuos y su interacción que a los procesos y las herramientas}
+
+En la industria generalmente se tiende a enaltecer los procesos como la única
+manera de lograr un objetivo en conjunto, dejando de lado el factor humano.
+Se debe considerar a los procesos como una ayuda mas no como la unica forma
+de llevar adelante un proyecto
+
+\subsubsection{Valorar más el software que funciona que la documentación exhaustiva}
+
+La documentación siempre es importante, tanto como respaldo o como constancia
+del trabajo realizado pero no es lo primero que ve el cliente. Un proyecto
+en funcionamiento es prueba suficiente de lo realizado.
+
+\subsubsection{Valorar más la colaboración con el cliente que la negociación contractual}
+
+Las metodologías tradicionales tienden a sobreplanificar los proyectos de
+desarrollo como una manera de acordar el trabajo a ser realizado con el cliente.
+Esto generalmente termina en un producto erroneo y en estimaciones incorrectas
+del trabajo a realizarse. Al tener una colaboración constante con el cliente
+se obtiene un acuerdo instantáneo con el mismo.
+
+\subsubsection{Valorar más la respuesta al cambio que el seguimiento de un plan}
+
+Al igual que en una negociación contractual, regirse completamente a un
+plan inicial aumenta el riesgo de no obtener el producto deseado. Se debe
+considerar el tener un plan inicial pero se debe tomar en cuenta que
+este puede cambiar a lo largo del desarrollo.
+
+\subsection{Tipos}
+
+\subsubsection{Scrum}
+
+Scrum forma parte de las metodologías ágiles que consideran un proceso
+iterativo e incremental de desarrollo. Un equipo de scrum es
+autorganizado y altamente comunicativo. Las tareas se cumplen en sprints
+que por lo general duran entre dos y cuatros semanas, cada sprint
+contiene un backlog de estas tareas, las cuales son ordenadas de acuerdo
+a su prioridad. El equipo entero es el encargado de estimar el
+esfuerzo necesario para acabar cada una de las tareas.
+
+\subsubsection{Extreme Programming}
+
+Al igual que scrum, XP considera también un proceso iterativo pero este
+hace mayor énfasis en el proceso de desarrollo de software. Sus principales
+características son: Creación pruebas unitarias de tu código, programación
+en parejas, re factorización constante del código y retroalimentación
+constante de los cambios por parte del cliente.
 
 \section{Desarrollo guiado por pruebas}
 
-En el software se tiene un amplio número de metodologías de desarrollo, las
-primeras fueron inspiradas en metodologías usadas en otras ramas de ingeniería
-y adaptadas para su uso en la construcción de sistemas informáticos. Estas
-promueven un desarrollo lineal, haciendo énfasis en la planificación exhaustiva
-para su posterior ejecución. Un ejemplo de estas metodologías es el desarrollo
-en cascada.
-
-Uno de los motivos por los cuales no se recomienda usar metodologías de
-desarrollo lineales, como el desarrollo en cascada, es que son procesos muy
-rígidos,  los cuales  contemplan, de antemano, que todos los proyectos de
-software son similares y que no necesitan gestionar muchos cambios a lo largo
-de su existencia.
-
-Son contados los tipos de proyectos en el mundo del software que tienen una
-base y aplicación parecidas, y al ser el desarrollo de sistemas una rama
-relativamente joven en comparación a otras ingenierías, no se puede confiar
-ciegamente en un proceso que considera la construcción de sistemas de software
-como un proceso probado y casi infalible. Las metodologías ágiles nacieron con
-el objetivo de solventar estas deficiencias y obtener un mejor tiempo de
-respuesta a posibles errores o cambios que se den a lo largo de un proyecto,
-por medio de iteraciones cortas para así obtener un mejor feedback por parte
-del cliente.
+El desarrollo guiado por pruebas o TDD es una practica de software la
+cual conlleva la creación de test automatizados. Estos tests son
+creados y mantenidos por los desarrolladores. Entre los beneficios
+del TDD están la mejora del codigo y una mayor tolerancia al cambio
 
 \subsection{Red, Green, Refactor}
 
-El desarrollo guiado por pruebas considera un proceso estricto, el cual se debe
+TDD considera un proceso estricto, el cual se debe
 seguir, al pie de la letra, con el objetivo de pensar primero lo que queremos
 implementar, para así tener una mejor idea de lo queremos desarrollar, y luego
 ir mejorando nuestro código, a este proceso se lo denomina Red, Green, Refactor
@@ -95,9 +128,6 @@ frágiles y poco tolerantes a los cambios
 Idealmente se debe tomar el mismo tiempo tanto para tanto hacer refactoring
 como para crear el test. Esto a la larga produce un código mas limpio y
 mantenible
-
-%%%%%%%%%%%%%%%%%%%%%TODO%%%%%%%%%%%%%%%%%%%%
-\subsubsection{El código es muy fácil o muy difícil de testear}
 
 \subsection{Mocking}
 Las pruebas deben crearse en base solo a la funcionalidad que vayan a
@@ -255,20 +285,90 @@ antes de que puedan ser mostrados en el cliente, esto no es posible en
 estos tipo de frameworks ya que la mayor parte del procesamiento pasa
 primero en el cliente.
 
-\section{Versionamiento}
-\section{Redes Sociales}
-
 \section{Edición Musical}
-  \subsection{Audio Digital}
-  \subsection{Sintetizadores Digitales}
-    \subsubsection{Oscilador}
-      \paragraph{Manipulación de Onda}
-        \subparagraph{Elementos}
-          \subsubparagraph{Distancia}
-          \subsubparagraph{Frecuencia (longitud de Onda)}
-          \subsubparagraph{Amplitud}
-        \subparagraph{Tipos de Onda}
-        sine, square, triangle sawtooth
-  \subsection{Sequenciadores Musicales}
-    \subsubsection{Tracker}
-    \subsubsection{Sequencer}
+
+La edición musical conlleva el cambio y la manipulación de determinados
+sonidos, pudiendo ser estos pregrabados o creados por medios analogicos
+o digitales. Con el fin de suavizar el resultado final de una cancion o
+melodia es necesario mezclar los sonidos de tal manera no se noten los
+cambios abruptos en el sonido, pudiendo darse estos en la frecuencia o
+la amplitud del sonido. Tambien se buscar realzar ciertas partes de una
+melodia agregando efectos y combinarlos con cambios en la amplitud del sonido.
+Gracias a los medios digitales el proceso de edicion se ha vuelto mucho
+mas fácil y de mejor calidad
+
+\subsection{Audio Digital}
+
+Antes de existir las computadoras las grabaciones eran realizadas de
+forma analogica, es decir se almacenaban en medios fisicos como cassettes
+o vinilos.
+Conseguir equipos de mezclo para medio analogicos era considerado costoso
+y muy dificil de manejar. Ahora mediante las grabaciones digitales podemos
+almacenar nuestras grabaciones en un archivo digital y procesarlo en
+software de edicion de sonido. De igual forma podemos generar sonidos
+digitales, sin la necesidad de contar con un instrumento podemos generar
+sonidos y manipularlos directamente
+
+\subsection{Sintetizadores Digitales}
+
+Los sintetizadores digitales nacieron junto con la era del sonido digital,
+estos crean sonidos por medio de la manipulacion digital de las ondas
+y sus propiedades, estas ondas son generadas por medio de un oscilador
+
+\subsubsection{Oscilador}
+
+Es una señal que nos permite generar ondas y manipularlas para crear
+sonidos
+
+\paragraph{Manipulación de Onda}
+\subparagraph{Distancia}
+
+Especifica el tiempo que va a durar el sonido generado
+
+\subparagraph{Frecuencia, longitud de Onda}
+
+Es el numero de ciclos generado por la onda, este se traduce en una
+nota musical, por ejemplo los 440Hz corresponden a la nota LA
+
+\subparagraph{Amplitud}
+
+Es el tamaño de la onda, este se traduce en el volumen del
+sonido generado
+
+\subparagraph{Tipos de Onda}
+
+Las formas de onda transforman el sonido generado (cambiando su timbre),
+existen los siguientes tipos de onda:
+
+sine, square, triangle sawtooth
+
+\subsection{Sequenciadores Musicales}
+
+El secuenciador es un forma de edicion musical muy basica, el cual
+nos permite generar sonidos y ordenarlos en un punto en el tiempo
+para su reproduccion. Entre los primeros secuenciadores musicales
+tenemos a la caja musical, el cual cuenta con dientes que reproducen
+una determinada nota al momento de accionarlo. Dependiendo
+de la velocidad del rodillo, la pista grabada en este se reproduce
+mas rapido o mas lento. En la actualidad se cuenta con software
+secuenciadores que nos permiten grabar y programar pistas
+
+\subsubsection{Sequencer}
+
+Un sequencer cuenta con varias pistas, cada pista contiene notas musicales
+a las cuales se les puede modificar el volumen, anadir efectos y cambiar
+su sonido modificando el tipo de onda. Posee tambien controles para su
+reproducción y un piano para identificar las notas. Se puede usar
+el teclado proporcionado en el software o podemos conectar un teclado
+fisico por medio del protocolo MIDI
+
+\subsubsection{Tracker}
+
+El tracker en un tipo de sequencer el cual representa las notas por medio
+de codigos, este codigo contiene datos como el volumen, la nota, el efecto
+entre otros. Una cancion entera consta de una grilla, donde las filas
+representan un punto en el tiempo y las columnas un canal especifico.
+La edicion en un tracker es mucho mas compleja y menos amigable que
+la de un sequencer normal, fueron creadas de esta forma debido a la
+carencia en su tiempo de interfaces graficas mas ricas como las que
+tenemos en la actualidad.
