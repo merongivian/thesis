@@ -1,2 +1,318 @@
 \section{Historias de usuario}
-\section{Interfaz Web}
+
+Como metodología de desarrollo se escogió scrum. Esta nos permite tener avances
+rápidos y modificaciones de las características de nuestro software en medio
+del proceso de desarrollo. El seguimiento de estas características se lo hace
+por medio de las historias de usuario, las cuales contienen el detalle
+completo de la funcionalidad a ser implementada. Para crear las historias
+de usuario se debe tomar en cuenta todos los detalles de la funcionalidad
+y la estimación del esfuerzo necesario para completar la tarea (por medio
+los puntos de la historia).
+
+Como nombre del proyecto se escogió Loopify, la aplicación contempla
+la creación de la aplicación web y un librería personalizada (Opal-Music) para
+la generación de notas musicales. A continuación se detalla las historias
+iniciales para la creación del proyecto.
+
+\subsection{Aplicación Web (Loopify)}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 108775342 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 2 & TÓPICO: & Editor Loops \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como cliente, puedo agregar notas a mi secuencia} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|l|}{Se podrá cambiar las notas de una secuencia especifica} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Agregar notas por medio del atributo 'notes' de 'sequence'
+    \item Agregar select con opcion a 1,2,4 u 8 notas, guardar en la base en campo 'quantity' para agregar el tiempo en cada nota (1 = whole note, 2 = half note, 4 = quarter note, 8 = eighth note)
+    \item Al escoger el numero de notas se debe desplegar el numero de selects respectivo (las cuales tendran como opciones las notas musicales existentes), por defecto empezara con una nota vacia o '-'
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Como cliente, puedo agregar notas a mi secuencia}
+\label{tab:Primero}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 106593214 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 2 & TÓPICO: & Editor Loops \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como cliente, puedo crear un loop con múltiples secuencias} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Este editor permitira la creacion basica de loops, los cuales tendran mas de una secuencia} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item El usuario puede modificar el titulo y volumen del loop
+    \item Crear boton de play que reproducir la secuencia
+    \item Crear control de volumen
+    \item Se puede añadir efectos para cada loop (usar tipo de onda de web audio API (sine, square, etc))
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Como cliente, puedo crear un loop con múltiples secuencias}
+\label{tab:Primero}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 110280888 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 3 & TÓPICO: & Editor Loops \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad para cambiar notas al momento de reproducirlas} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Al momento de reproducir la secuencia, añadir la habilidad de cambiar las notas y que estos cambios estén presentes en la siguiente reproducción del loop} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Añadir la habilidad de mutar las notas en el momento de reproducción
+    \item Realizar estos cambios junto con la librería Opal-Music
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Habilidad para cambiar notas al momento de reproducirlas}
+\label{tab:Primero}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 111056932 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 3 & TÓPICO: & Editor Loops \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad para programar las secuencias por medio de una matriz gráfica} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Se usara una matriz (gráficamente) para especificar el momento de reproduccion de una secuencia, cada fila representa una secuencia, las columnas son el punto de reproduccion de la secuencia, si se encuentra seleccionada esta sera reproducida, sino se lo toma como un espacio en blanco (no se reproduce)} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Añadir una matriz de selects para programar cada una de las secuencias
+    \item Añadir la posibilidad de aumentar o disminuir la longitud de todo el loop, lo cual aumentara o disminuirá el numero de selects en la matriz gráfica de reproducción
+    \item Realizar estos cambios junto con la librería Opal-Music
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Habilidad para programar las secuencias por medio de una matriz gráfica}
+\label{tab:Primero}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 109250002 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 2 & TÓPICO: & Usuario \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como usuario, puedo tener mas de un solo loop} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{El usuario podrá crear múltiples loops y visualizarlos en una lista} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Crear pagina de indice para listar loops
+    \item Añadir formulario para crear un nuevo loop
+    \item Añadir habilidad de redireccionar al nuevo loop una ves creado
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Como usuario, puedo tener mas de un solo loop}
+\label{tab:Primero}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 119350913 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 3 & TÓPICO: & Usuario \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como usuario puedo hacer una copia de un loop perteneciente a otro usuario} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Un usuario podrá hacer copia de un loop perteneciente a otro usuario para realizar sus propios cambios} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Añadir habilidad de navegar en la lista de loops de otros usuarios
+    \item Agregar botón con texto 'Copiar a mi perfil'
+    \item Al hacer click se añadirá una nueva copia de ese loop para el usuario que lo copio
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Como usuario puedo hacer una copia de un loop perteneciente a otro usuario}
+\label{tab:Primero}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 122381119 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 3 & TÓPICO: & Usuario \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{ Como usuario, puedo agregar otros usuarios como amigos} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{El usuario podrá agregar amigos y enterarse de sus actividades} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Crear una lista de usuarios dentro de la aplicación
+    \item Añadir botón 'Agregar como amigo' alado de cada usuario
+    \item Crear pagina de noticias con las actualizaciones de los amigos agregados
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Como usuario, puedo agregar otros usuarios como amigos}
+\label{tab:Primero}
+\end{table}
+
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 122458919 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 3 & TÓPICO: & Usuario \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como usuario puedo revisar mi muro de notificaciones} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{p{11cm}}{El usuario recibirá actualizaciones especificas de sus amigos} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Actualización cuando amigos agregan otros amigos
+    \item Actualización cuando amigos crean nuevos loops
+    \item Actualización cuando amigos copian otros loops
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Como usuario puedo revisar mi muro de notificaciones}
+\label{tab:Primero}
+\end{table}
+
+%\subsection{Librería Edición Musical (Opal-Music)}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 328 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 3 & TÓPICO: & Librería \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad crear notas musicales por medio de la librería Web Audio API} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Esta librería podrá generar notas musicales por medio de osciladores configurados a una frecuencia específica (relacionado con historia: 108775342)} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Creación de sonidos por medio del oscilador de Web Audio API
+    \item Especificar frecuencias para generar cada nota
+    \item Modificación de la duración de una nota
+    \item Modificación del volumen por medio de la amplitud de onda
+    \item Modificación efectos por medio del tipo de onda
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Habilidad crear notas por medio de Web Audio API}
+\label{tab:Primero}
+\end{table}
+
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 426 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 2 & TÓPICO: & Librería \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad para reproducir notas en secuencia} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Esta librería permitirá la reproducción de varias notas en secuencia (relacionado con historia: 108775342)} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Programar una secuencia por medio de sus notas y duraciones
+    \item Reproducir la siguiente nota al momento de terminarse la reproducción de la nota anterior
+    \item Reproducir notas vacías como espacios silencios con una duración de tiempo
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Habilidad para reproducir notas en secuencia}
+\label{tab:Primero}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|*{4}{l|}}
+\hline
+\multicolumn{4}{|c|}{HISTORIA DE USUARIO} \\ \hline
+NUMERO: & 840 & TIPO: & Feature \\ \hline
+PUNTOS ESTIMADOS: & 1 & TÓPICO: & Librería \\ \hline
+TITULO: & \multicolumn{3}{|p{7.2cm}|}{ Habilidad para programar la reproducción de varias secuencias} \\ \hline
+\multicolumn{4}{|l|}{DESCRIPCIÓN : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{Esta librería permitirá la programación de una secuencia a través de un tiempo determinado (relacionado con historia 111056932)} \\ \hline
+\multicolumn{4}{|l|}{TAREAS : } \\ \hline
+\multicolumn{4}{|p{11cm}|}{
+\begin{minipage}[t]{\hsize}
+  \begin{itemize}
+    \item Crear un limite de duración
+    \item En el limite provisto se repetirá la misma secuencia n veces o se omitirá su reproducción n veces en el limite de duracion provisto
+  \end{itemize}
+\end{minipage}
+} \\ \hline
+\end{tabular}
+\caption{Historia de Usuario: Habilidad para programar la reproducción de varias secuencias}
+\label{tab:Primero}
+\end{table}
+
+
+
+
+
+%\section{Interfaz Web}
