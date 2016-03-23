@@ -16,6 +16,23 @@ iniciales para la creación del proyecto.
 
 \subsection{Aplicación Web (Loopify)}
 
+La aplicación podrá generar loops por medio secuencias. Una secuencia representa
+un sección con notas la cual puede repetirse múltiples veces a lo largo del loop.
+Todas las secuencias tendrán una misma longitud de tiempo, lo que significa que
+al agregar mas notas estas simplemente dividirán la secuencia por el numero de
+notas requeridas, por lo que al agregar mas notas tendremos notas
+de menor duración y al agregar menos notas tendremos notas con mayor duración.
+Otra ventaja de tener secuencias con la misma longitud es que se vuelva mas
+fácil secuenciarlas en el loop.
+
+\subsubsection{Notas en una secuencia}
+
+Para las notas de la secuencia se podrán escoger 1 2,4 u 8 notas.
+(se escogieron pares para su división en partes iguales y para su uso interno
+en la librería de edición musical). Al escoger el numero de notas se
+crearan/disminuirán automáticamente el numero de dropdowns con notas.
+En la tabla 3.1 se muestra un resumen de esta historia
+
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.4}
@@ -41,6 +58,15 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como cliente, puedo agregar notas a mi sec
 \caption{Historia de Usuario: Como cliente, puedo agregar notas a mi secuencia}
 \label{tab:Primero}
 \end{table}
+
+\subsubsection{Creación de múltiples secuencias}
+
+Una ves creada la posibilidad de añadir secuencias debemos tener también la posibilidad
+de crear otras para programarlas en el loop. Cada secuencia tendrá la posibilidad
+de tener un tipo de efecto/timbre, un volumen determinado y la posibilidad de
+escucharla por medio de un botón de reproducción
+. En tabla 3.2 se incluye a mas detalle la implementación de
+esta historia
 
 \begin{table}[h]
 \centering
@@ -69,6 +95,16 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como cliente, puedo crear un loop con múl
 \label{tab:Primero}
 \end{table}
 
+\subsubsection{Cambio de notas en el momento de la reproducción}
+
+Con el fin de poder escuchar los cambios realizados a una secuencia, esta debe
+tener la posibilidad de cambiar internamente sin interrumpir la reproducción,
+la cual siempre se reproduce de manera continua, a menos que se haga stop
+de la secuencia. Si se cambia una nota este cambio se vera reflejada en la siguiente
+reproducción de la secuencia, sin tener que reiniciar su reproducción, como
+se detalla en la tabla 3.3 esto debe realizarse junto con la
+librería de edición creada
+
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.4}
@@ -93,6 +129,14 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad para cambiar notas al momento de
 \caption{Historia de Usuario: Habilidad para cambiar notas al momento de reproducirlas}
 \label{tab:Primero}
 \end{table}
+
+\subsubsection{Programación de múltiples secuencias en el loop}
+
+Para programar las secuencias se creara una matriz gráfica de checkboxes, cada
+fila representa a una secuencia y cada columna el instante en el que se las
+reproducirá (si esta marcada se reproduce, sino simplemente se reproduce como
+una secuencia en silencio). En la tabla 3.4 se detalle lo necesario para crear
+esta historia
 
 \begin{table}[h]
 \centering
@@ -120,6 +164,12 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad para programar las secuencias po
 \label{tab:Primero}
 \end{table}
 
+\subsubsection{Usuarios con múltiples loops}
+
+Una ves creada la posibilidad de tener un loop y programar nuestras notas por
+medio de secuencias debemos poder tener la posibilidad de tener múltiples loops
+por usuario. En la tabla 3.5 se detalla esta historia
+
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.4}
@@ -145,6 +195,14 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como usuario, puedo tener mas de un solo l
 \caption{Historia de Usuario: Como usuario, puedo tener mas de un solo loop}
 \label{tab:Primero}
 \end{table}
+
+\subsubsection{Usuario puede copiar un loop}
+
+Con el objetivo de tener un control de versionamiento cada usuario podrá
+crear su propia versión de un loop especifico, para esto cada usuario
+tendrá la posibilidad de navegar entre los listados de loops de otros
+usuarios, pero solo podrán modificarlos si hacen una copia propia. En
+la tabla 3.6 se resume esta historia
 
 \begin{table}[h]
 \centering
@@ -172,6 +230,12 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como usuario puedo hacer una copia de un l
 \label{tab:Primero}
 \end{table}
 
+\subsubsection{Agregar amigos}
+
+Para tener una mayor visibilidad de nuestros loops se creara la posibilidad
+de agregar a otros usuario como amigos, esto permitira ver las actividadades
+realizadas por los usuarios en la tabla 3.7 se explica a mayor detalle la
+historia
 
 \begin{table}[h]
 \centering
@@ -199,7 +263,13 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{ Como usuario, puedo agregar otros usuario
 \label{tab:Primero}
 \end{table}
 
+\subsubsection{Muro de actualizaciones}
 
+Las actualizaciones son un punto importante para agregar la funcionalidad
+de 'red social', para tener un punto de partida de visualización las actualizaciones
+se creara un un muro de notificaciones donde se podrá ver a cada uno de nuestros
+amigos y sus respectivas actividades, en la tabla 3.8 se detalla los
+tipos de actualizaciones que tendrá la aplicación
 
 \begin{table}[h]
 \centering
@@ -227,7 +297,23 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Como usuario puedo revisar mi muro de noti
 \label{tab:Primero}
 \end{table}
 
-%\subsection{Librería Edición Musical (Opal-Music)}
+\subsection{Librería Edición Musical (Opal-Music)}
+
+El motor de la aplicación web sera la librería Opal-Music, la cual permitirá la creación
+y manipulación de notas y efectos musicales por medio de Web Audio Api.
+Web Audio Api es un librería creado por Google para la manipulación de
+sonidos en la web, funciona en cualquier navegador con HTML5.
+Esta librería solo funciona con el lenguaje de programación JavaScript.
+Con el objetivo de usarlo de manera mas fácil junto con la aplicación se lo creo
+por medio de Opal, el cual es un transpilador que se encarga de transformar
+código en el lenguaje Ruby al lenguaje JavaScript.
+
+\subsubsection{Notas musicales con Web Audio Api}
+
+Con el objetivo de abstraer la forma de crear notas se creara una clase llamada
+'Note' la cual se encargara de crear notas con un volumen y una frecuencia especifica
+(el numero de la frecuencia define la nota). En la tabla 3.9 se da mayor detalles
+de esta historia
 
 \begin{table}[h]
 \centering
@@ -257,7 +343,13 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad crear notas musicales por medio 
 \label{tab:Primero}
 \end{table}
 
+\subsubsection{Notas en secuencia}
 
+La clase 'Sequence' podra crear multiples notas y secuenciarlas en un
+determinado periodo de tiempo. El volumen y efecto de una secuencia
+seran tambien configurados para cada nota. En la tabla 3.10 se
+detalla la forma en que se manejaran notas vacias y la forma en la
+que se secuenciaran las notas.
 
 \begin{table}[h]
 \centering
@@ -285,6 +377,12 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{Habilidad para reproducir notas en secuenc
 \label{tab:Primero}
 \end{table}
 
+\subsubsection{Programación de secuencias}
+
+Con el objetivo de repetir y/o programar una secuencia a lo largo del tiempo se
+creara la clase 'Schedule' la cual se encargara de guardar y reproducir una
+programación para una secuencia determinado. En la tabla 3.11 se detalla la
+historia creada para esta característica
 
 \begin{table}[h]
 \centering
@@ -302,7 +400,7 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{ Habilidad para programar la reproducción
 \begin{minipage}[t]{\hsize}
   \begin{itemize}
     \item Crear un limite de duración
-    \item En el limite provisto se repetirá la misma secuencia n veces o se omitirá su reproducción n veces en el limite de duracion provisto
+    \item En el limite provisto se repetirá la misma secuencia n veces o se omitirá su reproducción n veces en el limite de duración provisto
   \end{itemize}
 \end{minipage}
 } \\ \hline
@@ -311,8 +409,4 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{ Habilidad para programar la reproducción
 \label{tab:Primero}
 \end{table}
 
-
-
-
-
-%\section{Interfaz Web}
+\section{Interfaz Web}
