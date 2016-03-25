@@ -409,4 +409,89 @@ TITULO: & \multicolumn{3}{|p{7.2cm}|}{ Habilidad para programar la reproducción
 \label{tab:Primero}
 \end{table}
 
-\section{Interfaz Web}
+\section{Interfaz De Usuario}
+
+\subsection{Editor de loop}
+
+El editor de loops a ser creado emulara el funcionamiento existente en
+sequencers/trackers: una o varias pistas (secuencias) las cuales podrán
+ser editadas y programadas en un punto del loop.
+En la figura 3.1 podemos ver un primer ejemplo de como se visualizara un loop
+junto con sus secuencias (representadas por medio de cuadros dentro de
+la pagina). Cada secuencia tendrá los siguientes controles básicos: efecto,
+volumen, botón de reproducción y cambio de titulo
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{editor_con_secuencias.png}
+  \caption{Editor con secuencias.}
+  \label{fig:secuencia}
+\end{figure}
+
+Una ves creado los controles básicos del loop debemos crear los controles
+que nos permitirán añadir notas a cada secuencia (ver figura 3.2). Para
+esto se agregara un selector con el numero de notas deseadas. Por limites
+del espacio de visualización para cada secuencia se limitara el numero de notas
+a 8. Al escoger el numero de notas esta modificara dinámicamente los selectores
+de notas dentro de cada secuencia
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{secuencias_con_notas.png}
+  \caption{Secuencias con notas.}
+  \label{fig:notas}
+\end{figure}
+
+Para la reutilización de las secuencias se creara una matriz de
+programación (figura 3.3) encima de las secuencias. Cada fila representa una
+secuencia y solo se reproducirá a lo largo del loop si la columna es
+activada para su reproducción. A parte del boton de reproduccion para
+cada secuencia se creara también un boton de reproducción para la matriz
+programada
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{programacion_secuencias.png}
+  \caption{Programación de secuencias.}
+  \label{fig:programacion}
+\end{figure}
+
+\subsection{Usuarios}
+
+Gran parte de la mecánica que nos permitira encontrar nuevos loops
+se dara gracias a la interaccion entre usuarios. Como usuario podremos
+crear, actualizar y eliminar nuestros loops como se muestra en la figura 3.4
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{lista_loops.png}
+  \caption{Lista de loops de usuario autenticado.}
+  \label{fig:listaloops}
+\end{figure}
+
+También podremos descubrir y seguir las actividades de otros personas
+dirigiéndonos al listado general de usuarios. Aquí podremos seguir un usuario
+e incluso navegar entre los loops que han creado (figura 3.5)
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{users_list.png}
+  \caption{Lista de usuarios en el sistema.}
+  \label{fig:listaloops}
+\end{figure}
+
+Dentro del listado de loops de otros usuarios (figura 3.6) solo podremos
+hacer una copia del mismo, una ves copiados podremos modificarlos y
+verlos dentro de nuestro lista de loops
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{discover_loops.png}
+  \caption{Lista de loops de otros usuarios.}
+  \label{fig:listaloops}
+\end{figure}
+
+\subsection{Muro de Noticias}
+
+Al agregar usuarios como amigos podremos ver sus actualizaciones dentro de
+nuestro muro de noticias (figura 3.7)
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{news_feed.png}
+  \caption{Lista de noticias.}
+  \label{fig:listaloops}
+\end{figure}
