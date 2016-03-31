@@ -1,4 +1,167 @@
-\section{Herramientas}
-\section{Librería Edición Musical}
-\section{Arquitectura MVVM}
-\section{Integración control de Versiones}
+Como arquitectura de desarrollo se escogió MVVM (Modeo Vista Vista Modelo) por
+medio del framework Volt.
+Esta nos permitirá crear una aplicación mucho mas rica e interactiva para
+el usuario final, sobre todo en la parte de edición de musica, en la cual
+es necesaria el almacenamiento/actualizacion de información de forma
+dinámica (sin refrescos de pagina).
+Volt tambien divide a un proyecto web en multiples aplicaciones, esto con
+el objetivo de reutilizar codigo como librerias, en nuestro caso se ha
+planteado crear una aplicacion separada para la edicion de loops, esta
+contendra la funcionalidad necesaria para crear un editor y los controles para
+crear secuencias y grids para la programacion de estas secuencias. El codigo
+HTML para generar secuencias y grids puede ser reutilizado de cualquier manera
+dentro de otra aplicacion Volt, en nuestro caso podremos crear una pagina de loops
+personalizada con el numero de secuencias y grids que deseamos, reutilizando los
+componentes creados dentro de la aplicacion compartida.
+Como motor de todo el sistema de reproduccion de sonidos se creo una libreria
+(Opal Music), la cual esta escrita en el lenguaje ruby, pero que por debajo
+compila a javascript. Esta se encarga de manipular la libreria Web Audio
+Api para la creación de notas, secuencias y programación de secuencias.
+A continuación se describe los componentes indicados anteriormente:
+
+\section{Aplicación Music}
+
+La aplicación 'music' almacena toda la logica necesaria para crear
+un editor basico, en nuestro caso un loop. Consta de los siguientes elementos:
+
+\subsection{Modelos}
+\subsubsection{Loops (canción)}
+El loop es el modelo principal dentro del editor, se lo puede considerar como
+una cancion pero para efectos de la aplicación se le considera un elemento de
+reproducción o tono que puede ser reutilizado, consta de los siguientes elementos:
+\paragraph{Title (titulo)}
+Corresponde al titulo que le vamos a dar a nuestro loop
+\paragraph{Tempo (velocidad)}
+Es el valor dado para el aumento o disminucion en la velocidad de reproduccion
+(numero de notas por segundo)
+\paragraph{Volume (volumen)}
+El volumen permitira almacenar este valor el cual sera usado para todo las
+secuencias dentro del loop
+\paragraph{Size (tamaño)}
+El loop tendrá en un tamaño especifico, el cual determinara el numero de repeticiones
+que pueden tener cualquier secuencia a lo largo del loop, su valor mínimo
+es de cuatro repeticiones
+
+\subsubsection{Sequences (secuencias)}
+La secuencia forma parte de un loop y es el elemento principal para generar sonidos
+dentro de la aplicación, consta de los siguientes elementos:
+\paragraph{Title (titulo)}
+Nos sirve para identificar cada una de las secuencias dentro de un loop, tambien
+es usado dentro del grid, para identificar las secuencias en cada fila del mismo.
+\paragraph{Volumen (volume)}
+Representa el volumen de reproduccion de la secuencia, esta tambien puede ser tomada
+del loop al que pertenece, pero se decidio dejarlo por cuestion de usabilidad de
+una secuencia (fuera del contexto de un loop).
+\paragraph{Notes Number (numero)}
+Es la cantidad de notas que tendra nuestra secuencia, sus valores pueden varias entre los
+siguientes valores: 1, 2, 4 u 8
+square y sawtooth
+\paragraph{Effect (efecto)}
+Es el tipo de efecto con el cual se reproducirá la secuencia, para efectos prácticos
+este valor almacenara los tipos de ondas proporcionados por Web Audio API: sine,
+square y sawtooth
+
+\subsubsection{Cells (celulas)}
+Las celulas forman parte de una secuencia, sirven para marcar su reproduccion o no
+a lo largo de un loop, consta de un solo valor: value el cual es un valor de
+verdadero o falso. La cantidad de los mismos puede aumentar o disminuir en una
+secuencia tomando el valor del tamano del loop. Se decidio crear este modelo por
+fuera del campo secuencia para poder detectar sus cambios dinamicamente, en Volt
+los unicos cambios que pueden ser detectados reactivamente son los valores de modelos
+
+\subsubsection{Notes (notas)}
+Las notas también forman parte de una secuencia y al igual que las células
+los cambios de sus valores deben ser realizados dinámicamente, por lo cual
+cuentan son su propio modelo. La longitud de este valor cambia de acuerdo
+al numero de notas almacenado en la secuencia
+
+\subsection{Controladores (Vista Modelos)}
+\paragraph{Controlador Loops}
+Se encarga de almacenar y actualizar dinámicamente la cantidad de secuencias creadas,
+así como controlar los valores de volumen, reproducción y tempo.
+Cuando se hacen cambios en el loop estos se ven reflejados en el momento de la reproducción
+(calculados por medio de los valores del loop y de cada una de las secuencias). A su
+actualiza los cambios realizados en la grilla de reproducción, por medio de las celulas
+de cada secuencia.
+
+\paragraph{Controlador Secuencias}
+Al igual que el controlador de loops este se encarga de actualizar dinámicamente los
+valores de cada secuencia. A su ves realiza las tareas mas importantes dentro del editor:
+ejecuta la reproducción de notas con sus respectivas configuraciones(volumen, efecto, tempo,
+momento de ejecución) por medio de la librería Opal-Audio.
+
+\subsection{Vistas}
+\subsubsection{Editor}
+Los datos contenidos dentro de esta vista son creados y actualizados por medio del
+controlador. Este mostrara los datos loop que se quiera visualizar, y a su ves se
+actualizara reactivamente cuando se realizan cambios a los datos (sin necesidad de
+refrescar la pagina).
+\subsubsection{Grid}
+Este a su ves es manejado por el controlador de loops, para poder ser desplegado
+necesita usar los datos del loop ingresado. Esta vista esta contenida dentro
+la vista Editor
+\subsubsection{Controls (controles de secuencia)}
+Esta vista, la cual es manejada por el controlador de secuencias, despliega todo los
+controles de una secuencia especifica, los cuales son necesarios para cambiar
+sus valores al momento de reproducir las notas. Hace uso de los
+siguiente controles: volumen, efecto, reproducción(play) y cambio de notas. Los
+controles de una secuencia pueden ser usados independientemente o embeberlos
+dentro de la vista del editor
+
+\section{Aplicación Main(principal)}
+
+\subsection{Modelos}
+\subsubsection{Users (usuarios)}
+El usuario es el modelo pilar dentro del sistema, se encargara de almacenar tanto
+las relaciones de amistad como los datos del mismo. Este modelo a su
+ves contiene los loops creados.
+\paragraph{Name (nombre)}
+Almacena el nombre del usuario en una cadena de caracteres
+\paragraph{Password (contraseña)}
+Almacena en una cadena de caracteres encriptado la contraseña necesaria para
+el inicio de sesión.
+
+\subsection{Controladores}
+\subsubsection{Controlador de Notificaciones}
+Cada mensaje de notificación sera creado por este controlador cuando se haya creado
+o borrado un dato en el usuario (estos cambios pueden ser de amistades o loops),
+la creacion de estas notificaciones se lo hace modificando internamente el comportamiento en las
+actualizaciones de estos datos por medio de Volt.
+
+\subsubsection{Controlador de Loops de Usuario}
+Este se encarga se suministrar los datos necearios para mostrar los
+loops pertenecientes a un usuario, tambien permite crear o eliminar los
+mismos de manera reactiva (actualizara la lista de loops sin refrescar
+la pagina)
+
+\subsection{Vistas}
+\subsubsection{Notificaciones}
+Mostrara los mensajes de notificación junto con la fecha y el usuario al
+que refiere la actualización
+\subsubsection{Lista de loops}
+Tendrá los controles necesarios tanto para crear un nuevo loop o
+eliminar uno existente, este ultimo dentro de la lista de loops.
+
+\section{Libreria Opal-Music}
+Esta libreria fue creada como una gema(libreria) del lenguaje Ruby. Por
+debajo compila al lenguaje Javascript por lo cual solo puede ser usada
+dentro del navegador(por medio de la libreria Opal), en nuestro caso
+para la creacion de tonos musicales por Web Audio Api. El motivo para
+crear esta libreria en Ruby es por la usabilidad dentro del framework
+Volt, el cual también admite juntar codigo Javascript dentro de los
+controladores, pero tambien nos brinda la posibilidad de usar ruby puro
+dentro del navegador. Esta librería consta de los siguientes componentes:
+
+\subsection{Note (nota)}
+Se encarga de inicializar una nota con una determinada duración,
+por debajo contiene una lista con las siglas de las notas y sus respectivas
+frecuencias.
+\subsection{Sequence (secuencia)}
+Se encarga de la reproducción de múltiples notas con un determinado
+volumen. Recibe como parametros un 'AudioContext', el cual sirve como
+contexto para la creacion de elementos sonoros de Web Audio Api. Por
+cada nota este componente crea un 'Oscillator' perteneciente al
+contexto de audio ingresado.
+\subsection{Schedule (Programación de Secuencias)}
+Programa una misma secuencia y las repite a lo largo del tiempo.
+Por debajo utiliza una cadena de valores Verdadero/Falso para programarlo.
